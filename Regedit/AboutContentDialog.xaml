@@ -22,9 +22,30 @@
             <TextBlock x:Name="VersionText" Text="Version 2106 (Build 1.0)" />
             <TextBlock Text="© 2020-2021 Gustave Monce and contributors. All rights reserved." />
             <TextBlock Text="" />
-            <TextBlock x:Name="CopyrightText"
-                           Text="The Universal Registry Editor application and its user interface are available on https://github.com/gus33000/Regedit-UWP"
-                           TextWrapping="Wrap" />
+            <TextBlock x:Name="CopyrightText" />
+<-- Option One: TextBlock with span and imbedded hytperlink.
+            <TextBlock TextWrapping="WrapWholeWords>
+                <Span xml:space="preserve">
+                    <Run>The source code for Universal Registry Editor and its user interface is available for review and contribution in the </Run>
+                    <Hyperlink NavagateUri="https://github.com/gus33000/Regedit-UWP 
+                                UnderlineStyle="none" 
+                                FontWeight="SemiBold">Regedit-UWP GitHub Repository.</Hyperlink>
+                </span>
+            </TextBlock>
+--> 
+<-- Option Two: RichTextBlock no real functional differnce for this usecase, but preferable when handling mixed inline elements.
+            <RichTextBlock>
+                <Paragraph>
+                    <Span xml:space="preserve">
+                        <Run>The source code for Universal Registry Editor and its user interface is available for review and contribution in the </Run>
+                        <Hyperlink NavigateUri="https://github.com/gus33000/Regedit-UWP" 
+                                    UnderlineStyle="None" 
+                                    FontWeight="SemiBold"></Hyperlink>
+                        <Run>Regedit-UWP GitHub Repository.</Run>
+                    </Span>
+                </Paragraph>
+            </RichTextBlock>
+<--
             <TextBlock Text="" />
             <TextBlock Text="" />
             <TextBlock Text="" />
